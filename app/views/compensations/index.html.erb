@@ -1,0 +1,29 @@
+<h1>Listing compensations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Employee</th>
+      <th>Type</th>
+      <th>Amount</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @compensations.each do |compensation| %>
+      <tr>
+        <td><%= compensation.employee.user.email %></td>
+        <td><%= compensation.kind %></td>
+        <td><%= compensation.amount %></td>
+        <td><%= link_to 'Show', compensation %></td>
+        <td><%= link_to 'Edit', edit_compensation_path(compensation) %></td>
+        <td><%= link_to 'Destroy', compensation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Compensation', new_compensation_path %>

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :compensations
+
   resources :employees
 
   resources :companies
